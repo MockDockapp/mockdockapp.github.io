@@ -101,7 +101,7 @@ if ! docker ps | grep mockdock &> /dev/null; then
           -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
           -v /var/run/docker.sock:/var/run/docker.sock \
           -v "$HOME":/root \
-          -v /Users/markjordan/Documents:/Users/markjordan/Documents \
+          -v "$HOME/Documents":"$HOME/Documents" \
           -p 127.0.0.1:11800:11800 \
           -p 127.0.0.1:80:80 \
           -p 127.0.0.1:443:443 \
