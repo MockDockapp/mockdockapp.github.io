@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MockDock — Local Service Virtualization for Developers</title>
+    <title>MockDock app — Local Service Virtualization for Developers</title>
     <!-- Modern typography from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +48,21 @@
             color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #a855f7, #00b4d8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: #fff;
+            font-size: 0.95rem;
+            box-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
         }
 
         .logo span {
@@ -203,14 +217,17 @@
 <body>
 
     <header>
-        <div class="logo">🐳 Mock<span>dock</span></div>
+        <div class="logo">
+            <div class="logo-icon">MD</div>
+            MockDock app</span>
+        </div>
     </header>
 
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
             <h1>Local Service Virtualization, <span>Perfected</span></h1>
-            <p>MockDock is a desktop sandbox engine for developers. Mock third-party APIs, simulate network failures, share states across stubs, and verify integrations entirely offline.</p>
+            <p>The MockDock app is a desktop sandbox engine for developers. Mock third-party APIs, simulate network failures, share states across stubs, and verify integrations entirely offline.</p>
             
             <div class="install-box">
                 <p class="install-code" id="install-cmd">curl -sSL https://mockdockapp.github.io/install.sh | bash</p>
@@ -297,7 +314,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 MockDock. Built for modern local developer environments.</p>
+        <p>&copy; 2026 MockDock app. Built for modern local developer environments.</p>
     </footer>
 
     <script>
