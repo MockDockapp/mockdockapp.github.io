@@ -212,6 +212,25 @@
             font-size: 0.9rem;
             margin-top: 80px;
         }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 10px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 16px auto 0 auto;
+            line-height: 1.6;
+        }
     </style>
 </head>
 <body>
@@ -314,7 +333,12 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 MockDock app. Built for modern local developer environments.</p>
+        <p>&copy; 2026 MockDock app. All rights reserved.
+            <a href="https://github.com/MockDockapp/mockdock/blob/main/LICENSE" target="_blank">License</a>
+        </p>
+        <p class="privacy-note">
+            <strong>🔒 Privacy Statement:</strong> The MockDock app runs entirely on your local machine. We do not collect, store, or transmit any personal information, usage metrics, compose configurations, or environment variables to external servers. Your local development data remains private and secure.
+        </p>
     </footer>
 
     <script>
