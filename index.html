@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MockDock — Local Service Virtualization for Developers</title>
+    <!-- Modern typography from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --accent-blue: #2563eb;
+            --accent-blue-light: #eff6ff;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        header {
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin: 0 0 16px 0;
+            color: var(--text-primary);
+        }
+
+        .hero h1 span {
+            color: var(--accent-blue);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin: 0 auto 32px auto;
+            line-height: 1.6;
+        }
+
+        /* Copy Terminal Widget */
+        .install-box {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .install-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            margin: 0;
+            white-space: nowrap;
+            overflow-x: auto;
+            font-weight: 600;
+        }
+
+        .copy-btn {
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: 60px;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        /* Modern Table Styles */
+        .table-container {
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            background-color: var(--bg-primary);
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        td {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .feature-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .time-badge {
+            background-color: var(--accent-blue-light);
+            color: var(--accent-blue);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            white-space: nowrap;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">🐳 Mock<span>dock</span></div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Local Service Virtualization, <span>Perfected</span></h1>
+            <p>MockDock is a desktop sandbox engine for developers. Mock third-party APIs, simulate network failures, share states across stubs, and verify integrations entirely offline.</p>
+            
+            <div class="install-box">
+                <p class="install-code" id="install-cmd">curl -sSL https://mockdockapp.github.io/install.sh | bash</p>
+                <button class="copy-btn" onclick="copyCommand()">Copy</button>
+            </div>
+        </section>
+
+        <!-- Use Cases Table -->
+        <h2 class="section-title">Common Use Cases</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 30%">Scenario</th>
+                        <th>Developer Challenge</th>
+                        <th>MockDock Solution</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Offline Sandbox Testing</td>
+                        <td>Mocks break during flights, train commutes, or local ISP outages.</td>
+                        <td>Runs 100% locally. Keep building, coding, and testing database handshakes with no active internet connection.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Fault Tolerance & Chaos</td>
+                        <td>Simulating rate-limiting (e.g. Stripe 429s) or high latency is difficult in staging.</td>
+                        <td>One-click Chaos Control sliders to inject latency, disconnects, or packet loss directly at the network container boundary.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Unimplemented APIs</td>
+                        <td>Frontend and backend teams are blocked waiting for other API endpoints to go live.</td>
+                        <td>Write lightweight JavaScript mocks with MockDock's Goja engine to spin up functional stubs immediately.</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Dynamic Handshakes</td>
+                        <td>Static JSON mocks cannot handle JWT auth flows or checkout callbacks.</td>
+                        <td>Equips scripting hooks with namespaced shared state cache and outgoing fetch clients for stateful, multi-step sandboxes.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Capabilities & Features Table -->
+        <h2 class="section-title">Capabilities & Estimated Savings</h2>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%">Feature</th>
+                        <th style="width: 45%">Description</th>
+                        <th style="width: 30%">Est. Developer Savings</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Dynamic SNI Hijacking</td>
+                        <td>Intercepts HTTP/S calls to external domains at the container edge on-the-fly.</td>
+                        <td><span class="time-badge">1 - 2 Hours / Project</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Dynamic SSL Signing</td>
+                        <td>Generates SSL certificates on-the-fly signed by a trusted local root CA.</td>
+                        <td><span class="time-badge">3 - 4 Hours / Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Goja Scripting hooks</td>
+                        <td>Runs embedded JavaScript stubs containing outgoing HTTP fetch clients.</td>
+                        <td><span class="time-badge">20 - 30+ Hours / Sandbox</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Chaos Control</td>
+                        <td>Injects container-level network latency, loss, and disconnection.</td>
+                        <td><span class="time-badge">1 - 2 Days / QA Sprint</span></td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Universe Readiness Checklist</td>
+                        <td>Runs real-time diagnostics on compose ports and Docker sockets.</td>
+                        <td><span class="time-badge">30 - 60 Mins / Onboarding</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MockDock. Built for modern local developer environments.</p>
+    </footer>
+
+    <script>
+        function copyCommand() {
+            const cmdText = document.getElementById('install-cmd').innerText;
+            navigator.clipboard.writeText(cmdText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.innerText = 'Copied!';
+                btn.style.backgroundColor = '#16a34a';
+                setTimeout(() => {
+                    btn.innerText = 'Copy';
+                    btn.style.backgroundColor = '#2563eb';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
