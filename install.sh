@@ -78,17 +78,17 @@ echo -e "${GREEN}✅ Installed MockDock CLI to $TARGET_PATH${NC}"
 
 # 4. Pull Daemon Container
 echo -e "🐳 Pulling MockDock Daemon image..."
-if docker image inspect ghcr.io/mockdockapp/mockdock:latest &> /dev/null; then
-    echo -e "${GREEN}✅ Local ghcr.io/mockdockapp/mockdock:latest container image found.${NC}"
-else
-    # Check if we have source files here
-    if [ -f "Dockerfile" ]; then
+# Check if we have source files here (development environment)
+if [ -f "Dockerfile" ]; then
+    if docker image inspect ghcr.io/mockdockapp/mockdock:latest &> /dev/null; then
+        echo -e "${GREEN}✅ Local ghcr.io/mockdockapp/mockdock:latest container image found.${NC}"
+    else
         echo -e "🔨 Building ghcr.io/mockdockapp/mockdock:latest local image..."
         docker build -t ghcr.io/mockdockapp/mockdock:latest .
-    else
-        echo -e "📥 Pulling ghcr.io/mockdockapp/mockdock:latest prebuilt image from GitHub Packages..."
-        docker pull ghcr.io/mockdockapp/mockdock:latest
     fi
+else
+    echo -e "📥 Pulling latest ghcr.io/mockdockapp/mockdock:latest image from GitHub Packages..."
+    docker pull ghcr.io/mockdockapp/mockdock:latest
 fi
 
 # 5. Boot / Bootstrap Daemon
