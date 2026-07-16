@@ -99,6 +99,7 @@ if ! docker ps | grep mockdock &> /dev/null; then
     else
         docker run -d --name mockdock \
           -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
+          -e HOST_DOCUMENTS_DIR="$HOME/Documents" \
           -v /var/run/docker.sock:/var/run/docker.sock \
           -v "$HOME":/root \
           -v "$HOME/Documents":"$HOME/Documents" \
