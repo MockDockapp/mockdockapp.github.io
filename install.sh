@@ -100,21 +100,33 @@ if docker ps -a | grep mockdock &> /dev/null; then
     docker rm -f mockdock &> /dev/null
 fi
 
+# Determine the real user home directory
+if [ -n "$SUDO_USER" ]; then
+    REAL_HOME=$(eval echo ~$SUDO_USER)
+else
+    REAL_HOME="$HOME"
+fi
+
+mkdir -p "$REAL_HOME/.mockdock"
+if [ -n "$SUDO_USER" ]; then
+    chown -R "$SUDO_USER" "$REAL_HOME/.mockdock"
+fi
+
 # Detect Docker socket path
 DOCKER_SOCK="/var/run/docker.sock"
-if [ -S "$HOME/.orbstack/run/docker.sock" ]; then
-    DOCKER_SOCK="$HOME/.orbstack/run/docker.sock"
-elif [ -S "$HOME/.colima/default/docker.sock" ]; then
-    DOCKER_SOCK="$HOME/.colima/default/docker.sock"
+if [ -S "$REAL_HOME/.orbstack/run/docker.sock" ]; then
+    DOCKER_SOCK="$REAL_HOME/.orbstack/run/docker.sock"
+elif [ -S "$REAL_HOME/.colima/default/docker.sock" ]; then
+    DOCKER_SOCK="$REAL_HOME/.colima/default/docker.sock"
 fi
 echo -e "🐳 Mapping Docker socket: $DOCKER_SOCK"
 
 docker run -d --name mockdock \
   -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
-  -e HOST_DOCUMENTS_DIR="$HOME/Documents" \
+  -e HOST_DOCUMENTS_DIR="$REAL_HOME/Documents" \
   -v "$DOCKER_SOCK":/var/run/docker.sock \
-  -v "$HOME":/root \
-  -v "$HOME/Documents":"$HOME/Documents" \
+  -v "$REAL_HOME/.mockdock":/root/.mockdock \
+  -v "$REAL_HOME/Documents":"$REAL_HOME/Documents" \
   -p 127.0.0.1:11800:11800 \
   -p 127.0.0.1:80:80 \
   -p 127.0.0.1:443:443 \
@@ -123,6 +135,8 @@ docker run -d --name mockdock \
 echo -e "${GREEN}🚀 MockDock daemon started successfully!${NC}"
 echo -e "\n${GREEN}===============================================${NC}"
 echo -e "${GREEN}🎉 MockDock is successfully installed!        ${NC}"
-echo -e "   Run 'mockdock status' to check workspace state."
-echo -e "   Open http://localhost:11800 to load dashboard."
+echo -e "   To get started:"
+echo -e "   1. Navigate to your project directory containing a docker-compose file"
+echo -e "   2. Run: mockdock init"
+echo -e "   3. Open http://localhost:11800 to load the dashboard."
 echo -e "${GREEN}===============================================${NC}"
