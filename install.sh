@@ -93,22 +93,32 @@ fi
 
 # 5. Boot / Bootstrap Daemon
 echo -e "⚙️  Bootstrapping MockDock daemon service..."
-if ! docker ps | grep mockdock &> /dev/null; then
-    if docker ps -a | grep mockdock &> /dev/null; then
-        docker start mockdock
-    else
-        docker run -d --name mockdock \
-          -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
-          -e HOST_DOCUMENTS_DIR="$HOME/Documents" \
-          -v /var/run/docker.sock:/var/run/docker.sock \
-          -v "$HOME":/root \
-          -v "$HOME/Documents":"$HOME/Documents" \
-          -p 127.0.0.1:11800:11800 \
-          -p 127.0.0.1:80:80 \
-          -p 127.0.0.1:443:443 \
-          ghcr.io/mockdockapp/mockdock:latest
-    fi
+
+# Stop and remove existing mockdock container to ensure clean state
+if docker ps -a | grep mockdock &> /dev/null; then
+    echo -e "🔄 Resetting existing MockDock daemon container..."
+    docker rm -f mockdock &> /dev/null
 fi
+
+# Detect Docker socket path
+DOCKER_SOCK="/var/run/docker.sock"
+if [ -S "$HOME/.orbstack/run/docker.sock" ]; then
+    DOCKER_SOCK="$HOME/.orbstack/run/docker.sock"
+elif [ -S "$HOME/.colima/default/docker.sock" ]; then
+    DOCKER_SOCK="$HOME/.colima/default/docker.sock"
+fi
+echo -e "🐳 Mapping Docker socket: $DOCKER_SOCK"
+
+docker run -d --name mockdock \
+  -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
+  -e HOST_DOCUMENTS_DIR="$HOME/Documents" \
+  -v "$DOCKER_SOCK":/var/run/docker.sock \
+  -v "$HOME":/root \
+  -v "$HOME/Documents":"$HOME/Documents" \
+  -p 127.0.0.1:11800:11800 \
+  -p 127.0.0.1:80:80 \
+  -p 127.0.0.1:443:443 \
+  ghcr.io/mockdockapp/mockdock:latest
 
 echo -e "${GREEN}🚀 MockDock daemon started successfully!${NC}"
 echo -e "\n${GREEN}===============================================${NC}"
