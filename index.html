@@ -238,7 +238,7 @@
     <header>
         <div class="logo">
             <div class="logo-icon">MD</div>
-            MockDock app</span>
+            Mock<span>Dock app</span>
         </div>
     </header>
 
@@ -252,7 +252,39 @@
                 <p class="install-code" id="install-cmd">curl -sSL https://mockdockapp.github.io/install.sh | bash</p>
                 <button class="copy-btn" onclick="copyCommand()">Copy</button>
             </div>
+            
+            <div style="margin-top: 20px; font-size: 0.9rem; color: var(--text-secondary);">
+                ⚠️ Before installing, please review the <a href="https://github.com/MockDockapp/mockdock/blob/main/readiness-checklist.md" target="_blank" style="color: var(--accent-blue); font-weight: 600; text-decoration: none; border-bottom: 1px dashed var(--accent-blue);">Environment Readiness Checklist</a>.
+            </div>
         </section>
+
+        <!-- Screenshots Showcase -->
+        <h2 class="section-title">MockDock app</h2>
+        <div class="screenshots-container" style="display: flex; flex-direction: column; gap: 32px; margin-bottom: 60px;">
+            <div class="screenshot-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); text-align: left;">1. Aggregated Multi-Universe Workspaces</h3>
+                <img src="screenshots/mockdock-workspace.png" alt="MockDock Workspace Dashboard" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); display: block; box-shadow: var(--shadow-md);">
+            </div>
+            <div class="screenshot-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 24px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 16px;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); text-align: left;">2. Service Control Panel & Ghost Interceptor</h3>
+                <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 250px;">
+                        <ul style="margin: 0; padding-left: 20px; font-size: 1.05rem; line-height: 2; color: var(--text-secondary); text-align: left;">
+                            <li><strong>GOJA VM</strong></li>
+                            <li><strong>Static Mocks</strong></li>
+                            <li><strong>Chaos Controls</strong></li>
+                        </ul>
+                    </div>
+                    <div style="flex: 1; min-width: 250px; display: flex; justify-content: flex-end;">
+                        <img src="screenshots/mockdock-service-control-panel.png" alt="MockDock Service Control Panel" style="width: 100%; max-width: 500px; border-radius: 8px; border: 1px solid var(--border-color); display: block; box-shadow: var(--shadow-md);">
+                    </div>
+                </div>
+            </div>
+            <div class="screenshot-card" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 12px;">
+                <h3 style="margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--text-primary); text-align: left;">3. Intercepted Handshakes & Protocol Logs</h3>
+                <img src="screenshots/mockdock-handshakes.png" alt="MockDock Handshakes View" style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color); display: block; box-shadow: var(--shadow-md);">
+            </div>
+        </div>
 
         <!-- Use Cases Table -->
         <h2 class="section-title">Common Use Cases</h2>
@@ -288,6 +320,83 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <!-- Getting Started Section -->
+        <h2 class="section-title">Getting Started</h2>
+        <div class="getting-started-container" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 60px; text-align: left;">
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">1</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Install MockDock</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Run the installation curl command in your terminal and visit <a href="http://localhost:11800/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">http://localhost:11800/</a>.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">2</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Create a New Universe</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Go to the <strong>Profiles</strong> tab and create a new Universe by adding a <code>docker-compose.yml</code> file locally or from a URL.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">3</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Enable Ghost Mode</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Go to the <strong>Workspaces</strong> screen, put a service into Ghost Mode, and select <strong>Configure</strong>.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">4</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Configure Stub Behavior</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">On the **Configure** tab, try setting up a basic response or try enabling <strong>Stateful CRUD</strong>.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">5</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Apply Changes</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Restart and rebuild MockDock using the **Restart & Rebuild** control button.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">6</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Verify the Mock</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Visit your test application and try it based on the new Ghost configuration.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">7</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Save Your Configuration</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Visit the **Profiles** tab and save the active profile for the test configuration.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">8</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Review Profiles Registry</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Verify the newly saved profile appears in the registry list on the **Profiles** tab.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">9</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Audit Compose Configuration</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Go to the **Compose** screen and run the **Security & Health Audit** on your compose file.</p>
+                    </div>
+                </div>
+                <div style="display: flex; gap: 16px; align-items: flex-start;">
+                    <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">10</div>
+                    <div>
+                        <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Explore Additional Settings</strong>
+                        <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">Click on the **gear icon** in the bottom-left corner of the sidebar to manage licenses or trust the Root CA cert.</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Capabilities & Features Table -->
@@ -335,7 +444,7 @@
     <footer>
         <p>&copy; 2026 MockDock app. All rights reserved.
             <a href="https://github.com/MockDockapp/mockdock/blob/main/LICENSE" target="_blank">License</a>
-            <a href="https://github.com/MockDockapp/mockdock/blob/main/TROUBLESHOOTING.md" target="_blank">Troubleshooting Guide</a>
+            <a href="https://github.com/MockDockapp/mockdock/blob/main/readiness-checklist.md" target="_blank">Readiness Checklist</a>
         </p>
         <p class="privacy-note">
             <strong>🔒 Privacy Statement:</strong> The MockDock app runs entirely on your local machine. We do not collect, store, or transmit any personal information, usage metrics, compose configurations, or environment variables to external servers. Your local development data remains private and secure.
