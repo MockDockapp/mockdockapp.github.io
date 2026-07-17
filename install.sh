@@ -123,10 +123,9 @@ echo -e "🐳 Mapping Docker socket: $DOCKER_SOCK"
 
 docker run -d --name mockdock \
   -e MOCKDOCK_BIND_ADDR=0.0.0.0:11800 \
-  -e HOST_DOCUMENTS_DIR="$REAL_HOME/Documents" \
   -v "$DOCKER_SOCK":/var/run/docker.sock \
   -v "$REAL_HOME/.mockdock":/root/.mockdock \
-  -v "$REAL_HOME/Documents":"$REAL_HOME/Documents" \
+  -v "$REAL_HOME":"$REAL_HOME" \
   -p 127.0.0.1:11800:11800 \
   -p 127.0.0.1:80:80 \
   -p 127.0.0.1:443:443 \
