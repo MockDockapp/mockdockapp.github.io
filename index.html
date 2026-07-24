@@ -234,35 +234,6 @@
             margin: 16px auto 0 auto;
             line-height: 1.6;
         }
-        .tab-buttons {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-        }
-        .tab-btn {
-            background: transparent;
-            border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            cursor: pointer;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            font-family: 'Outfit', sans-serif;
-        }
-        .tab-btn.active {
-            background: var(--accent-blue-light);
-            color: var(--accent-blue);
-        }
-        .tab-pane {
-            display: none;
-        }
-        .tab-pane.active {
-            display: block;
-        }
     </style>
 </head>
 
@@ -278,8 +249,8 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Master Container Networking. <span>Simplify Service Mocking.</span></h1>
-            <p>An interactive learning sandbox and production utility. Learn and execute local service virtualization right inside your Docker stack.</p>
+            <h1>Learn and Execute</h1>
+            <p>An interactive learning sandbox and local service virtualization utility</p>
 
             <div style="background: rgba(37, 99, 235, 0.05); border-left: 4px solid var(--accent-blue); border-radius: 8px; padding: 16px 20px; max-width: 600px; margin: 24px auto; text-align: left; font-size: 0.95rem; font-style: italic; color: var(--text-secondary); line-height: 1.5;">
                 "I built MockDock to demystify container proxying, TLS interception, and service mocking—and built a practical local tool while doing it."
@@ -372,29 +343,103 @@
 
         <!-- Getting Started Section -->
         <h2 class="section-title">Getting Started</h2>
-        <div class="tab-buttons" style="max-width: 600px; margin: 0 auto 24px auto; justify-content: center;">
-            <button class="tab-btn active" onclick="switchTab('tab-learn')">Learn (Target Labs)</button>
-            <button class="tab-btn" onclick="switchTab('tab-execute')">Execute (Production)</button>
-        </div>
-
-        <div class="getting-started-container"
-            style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); margin-bottom: 60px; text-align: left;">
-            
-            <!-- LEARN TAB PANE -->
-            <div class="tab-pane active" id="tab-learn">
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 60px;">
+            <!-- CORE FEATURES SECTION -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); text-align: left;">
+                <h3 style="margin-top: 0; margin-bottom: 24px; font-size: 1.4rem; font-weight: 700; color: var(--accent-blue); border-bottom: 2px solid var(--accent-blue-light); padding-bottom: 8px;">Core Features</h3>
                 <div style="display: flex; flex-direction: column; gap: 24px;">
                     <div style="display: flex; gap: 16px; align-items: flex-start;">
                         <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">1</div>
                         <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Clone the Target Labs</strong>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Install & Initialize MockDock</strong>
                             <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Clone the repository to get access to all pre-configured test apps:
-                                <code style="display: block; margin-top: 8px; background: #0f172a; color: #38bdf8; padding: 8px 12px; border-radius: 6px; font-family: monospace;">git clone https://github.com/MockDockapp/mockdock.git</code>
+                                Run the installation curl command in your terminal, then run <code>mockdock init</code> inside your project folder containing a <code>docker-compose.yml</code> file, and then visit <a href="http://localhost:11800/" target="_blank" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">http://localhost:11800/</a>.
                             </p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 16px; align-items: flex-start;">
                         <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">2</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Activate the Universe & Enable Ghost Mode</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Activate your universe by navigating to the <strong>Universe</strong> tab in the web dashboard or by running <code>mockdock activate [project name]</code> in your terminal. Once active, visit the Workspace screen, put your desired services in Ghost mode, and Start the Stack.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">3</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Configure workspace</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Put services in Ghost mode and set payloads using the service control panel like enabling Stateful CRUD.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">4</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Apply Changes</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Restart and rebuild MockDock using the <strong>Restart & Rebuild</strong> control button.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">5</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Save Your Configuration</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Visit the <strong>Profiles</strong> tab and save the active profile for the test configuration.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">6</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Review Profiles Registry</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Verify the newly saved profile appears in the registry list on the <strong>Profiles</strong> tab.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">7</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Audit Compose Configuration</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Go to the <strong>Compose</strong> screen and run the <strong>Security & Health Audit</strong> on your compose file.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">8</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Explore Additional Settings</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Click on the <strong>gear icon</strong> in the bottom-left corner of the sidebar to manage licenses or trust the Root CA cert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TARGET LABS SECTION -->
+            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 16px; padding: 32px; box-shadow: var(--shadow-sm); text-align: left;">
+                <h3 style="margin-top: 0; margin-bottom: 24px; font-size: 1.4rem; font-weight: 700; color: #a855f7; border-bottom: 2px solid #f3e8ff; padding-bottom: 8px;">Target Labs</h3>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: #a855f7; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">1</div>
+                        <div>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Install the labs</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Install the labs using the command:
+                                <code style="display: block; margin-top: 8px; background: #0f172a; color: #c084fc; padding: 8px 12px; border-radius: 6px; font-family: monospace;">mockdock test-labs-install</code>
+                            </p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; align-items: flex-start;">
+                        <div style="width: 28px; height: 28px; background: #a855f7; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">2</div>
                         <div>
                             <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Navigate to a Lab Stack</strong>
                             <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
@@ -403,141 +448,31 @@
                         </div>
                     </div>
                     <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">3</div>
+                        <div style="width: 28px; height: 28px; background: #a855f7; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">3</div>
                         <div>
                             <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Initialize & Start Universe</strong>
                             <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Run <code>mockdock init</code> inside the chosen directory to register the universe, then start the stack by running:
-                                <code style="display: block; margin-top: 8px; background: #0f172a; color: #38bdf8; padding: 8px 12px; border-radius: 6px; font-family: monospace;">docker compose up -d</code>
+                                Run <code>mockdock init</code> and then visit <a href="http://localhost:11800/" target="_blank" style="color: #a855f7; text-decoration: none; font-weight: 600;">http://localhost:11800</a>.
                             </p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">4</div>
+                        <div style="width: 28px; height: 28px; background: #a855f7; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">4</div>
                         <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Follow the Interactive Worksheets</strong>
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Start the test target</strong>
                             <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Visit <code>http://localhost:11800</code>, open the side-panel stubs, toggle Ghost Mode, and follow the step-by-step instructions inside the matching <strong>lessons/LESSON-*.md</strong> files to learn how container proxying, SSL interception, and chaos controls operate!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- EXECUTE TAB PANE -->
-            <div class="tab-pane" id="tab-execute">
-                <div style="display: flex; flex-direction: column; gap: 24px;">
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            1</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Install &
-                                Initialize MockDock</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Run the installation curl command in your terminal, then run <code>mockdock init</code>
-                                inside your project folder containing a <code>docker-compose.yml</code> file, and then visit <a
-                                    href="http://localhost:11800/" target="_blank"
-                                    style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">http://localhost:11800/</a>.
+                                Boot the test target container using Docker Compose:
+                                <code style="display: block; margin-top: 8px; background: #0f172a; color: #c084fc; padding: 8px 12px; border-radius: 6px; font-family: monospace;">docker compose up -d</code>
                             </p>
                         </div>
                     </div>
                     <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            2</div>
+                        <div style="width: 28px; height: 28px; background: #a855f7; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">5</div>
                         <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Activate the Universe & Enable Ghost Mode</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Activate your universe by navigating to the <strong>Universe</strong> tab in the web dashboard or by running <code>mockdock activate [project name]</code> in your terminal. Once active, visit the <strong>Workspace</strong> screen, put your desired services in Ghost mode, and Start the Stack.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            3</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Configure Stub
-                                Behavior</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                On the **Configure** tab, try setting up a basic response or try enabling <strong>Stateful
-                                    CRUD</strong>.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            4</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Apply
-                                Changes</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Restart and rebuild MockDock using the **Restart & Rebuild** control button.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            5</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Verify the Mock</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Visit your test application and try it based on the new Ghost configuration.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            6</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Save Your
-                                Configuration</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Visit the **Profiles** tab and save the active profile for the test configuration.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            7</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Review Profiles
-                                Registry</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Verify the newly saved profile appears in the registry list on the **Profiles** tab.</p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            8</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Audit Compose
-                                Configuration</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Go to the **Compose** screen and run the **Security & Health Audit** on your compose file.
+                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Follow the worksheets</strong>
+                            <p style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
+                                Open the side-panel stubs, toggle Ghost Mode, and follow the step-by-step instructions inside the matching <code>lessons/LESSON-*.md</code> files to learn how container proxying, SSL interception, and chaos controls operate!
                             </p>
-                        </div>
-                    </div>
-                    <div style="display: flex; gap: 16px; align-items: flex-start;">
-                        <div
-                            style="width: 28px; height: 28px; background: var(--accent-blue); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.9rem; flex-shrink: 0; margin-top: 2px;">
-                            9</div>
-                        <div>
-                            <strong style="font-size: 1.05rem; color: var(--text-primary); display: block;">Explore
-                                Additional Settings</strong>
-                            <p
-                                style="margin: 4px 0 0 0; font-size: 0.95rem; color: var(--text-secondary); line-height: 1.5;">
-                                Click on the **gear icon** in the bottom-left corner of the sidebar to manage licenses or
-                                trust the Root CA cert.</p>
                         </div>
                     </div>
                 </div>
@@ -602,19 +537,6 @@
                     btn.style.backgroundColor = '#2563eb';
                 }, 2000);
             });
-        }
-
-        function switchTab(tabId) {
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
-            
-            // Activate button
-            const activeBtn = document.querySelector(`[onclick="switchTab('${tabId}')"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-            
-            // Activate pane
-            const activePane = document.getElementById(tabId);
-            if (activePane) activePane.classList.add('active');
         }
     </script>
 </body>

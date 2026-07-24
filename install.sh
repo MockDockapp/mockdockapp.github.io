@@ -132,10 +132,18 @@ docker run -d --name mockdock \
   ghcr.io/mockdockapp/mockdock:latest
 
 echo -e "${GREEN}🚀 MockDock daemon started successfully!${NC}"
+
+# Automatically download Target Labs
+if command -v mockdock &> /dev/null; then
+    echo -e "📥 Downloading MockDock Target Labs..."
+    mockdock test-labs-install
+fi
+
 echo -e "\n${GREEN}===============================================${NC}"
 echo -e "${GREEN}🎉 MockDock is successfully installed!        ${NC}"
 echo -e "   To get started:"
-echo -e "   1. Navigate to your project directory containing a docker-compose file"
+echo -e "   1. Navigate to a target lab inside './mockdock-labs/'"
 echo -e "   2. Run: mockdock init"
-echo -e "   3. Open http://localhost:11800 to load the dashboard."
+echo -e "   3. Run: docker compose up -d"
+echo -e "   4. Open http://localhost:11800 to load the dashboard."
 echo -e "${GREEN}===============================================${NC}"
